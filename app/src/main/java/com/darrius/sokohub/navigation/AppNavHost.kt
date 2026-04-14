@@ -7,7 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.darrius.sokohub.ui.screens.Scafold.ScaffoldScreen
+import com.darrius.sokohub.ui.screens.Scaffold.ScaffoldScreen
 import com.darrius.sokohub.ui.screens.about.AboutScreen
 import com.darrius.sokohub.ui.screens.auth.LoginScreen
 import com.darrius.sokohub.ui.screens.auth.RegisterScreen
@@ -56,6 +56,7 @@ fun AppNavHost(
         composable(ROUT_SCAFFOLD) {
             ScaffoldScreen(navController)
         }
+
 
     }
 
