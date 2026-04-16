@@ -48,6 +48,8 @@ import com.darrius.sokohub.R
 import com.darrius.sokohub.navigation.ROUT_LOGIN
 import com.darrius.sokohub.ui.theme.neworange
 
+
+
 @Composable
 fun RegisterScreen(navController: NavController){
     Column(
