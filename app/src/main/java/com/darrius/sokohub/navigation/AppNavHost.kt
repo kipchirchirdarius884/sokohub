@@ -4,9 +4,11 @@ package com.darrius.sokohub.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.darrius.sokohub.ui.screens.Scaffold.ScaffoldScreen
 import com.darrius.sokohub.ui.screens.about.AboutScreen
 import com.darrius.sokohub.ui.screens.auth.LoginScreen
@@ -14,6 +16,9 @@ import com.darrius.sokohub.ui.screens.auth.RegisterScreen
 import com.darrius.sokohub.ui.screens.home.HomeScreen
 import com.darrius.sokohub.ui.screens.intent.IntentScreen
 import com.darrius.sokohub.ui.screens.onboarding.OnBoardingScreen
+import com.darrius.sokohub.ui.screens.products.AddProductScreen
+import com.darrius.sokohub.ui.screens.products.UpdateProductScreen
+import com.darrius.sokohub.ui.screens.products.ViewProductScreen
 import com.darrius.sokohub.ui.screens.splash.SplashScreen
 
 @Composable
@@ -56,6 +61,18 @@ fun AppNavHost(
         composable(ROUT_SCAFFOLD) {
             ScaffoldScreen(navController)
         }
+        composable(ROUTE_ADD_PRODUCT) { AddProductScreen(navController) }
+
+        composable(ROUTE_VIEW_PRODUCTS) { ViewProductScreen(navController) }
+
+        composable(
+            ROUTE_UPDATE_PRODUCT,
+            arguments = listOf(navArgument("productId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val productId = backStackEntry.arguments?.getString("productId")!!
+            UpdateProductScreen(navController, productId)
+        }
+
 
 
     }
